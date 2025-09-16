@@ -1,0 +1,122 @@
+Role & Context: You are an expert full-stack developer and UX/UI designer. Your task is to design and architect a complete, production-ready real-time chat web application based on the following detailed requirements.
+
+Project Title: ConnectVerse - A Modern Real-Time Chat Application
+
+Core Objective: To build a feature-rich, secure, and responsive web application that allows users to communicate with each other in real-time, with persistent data storage for messages and user profiles.
+
+1. Technical Stack Specification (Choose a robust MERN-like stack):
+
+Frontend Framework: React.js with functional components and React Hooks (useState, useEffect, useContext).
+
+Backend Framework: Node.js with Express.js.
+
+Real-Time Communication: Socket.IO for WebSocket connections for live messaging and notifications.
+
+Database: MongoDB with Mongoose ODM for data modeling. (Consider collections for Users, Messages, Conversations).
+
+File Storage: Use Multer middleware for handling image uploads. Store images in a dedicated uploads/ directory or integrate with a cloud service like AWS S3 or Cloudinary (preferable for production).
+
+Authentication: JSON Web Tokens (JWT) for secure user login/sessions.
+
+Styling: Use a modern CSS framework like Tailwind CSS for utility-first, responsive, and beautiful UI components. Ensure full responsiveness for mobile, tablet, and desktop.
+
+State Management: React Context API or a state management library like Redux Toolkit for managing global user state (e.g., auth status, online users).
+
+2. Detailed Feature Set & Requirements:
+
+A. User Authentication & Authorization:
+
+Implement JWT-based user registration and login/logout.
+
+Passwords must be hashed and salted (using bcryptjs) before storing in the database.
+
+Protect API routes and Socket.IO connections to ensure only authenticated users can access them.
+
+Store the JWT token securely on the client-side (e.g., in an HTTP-only cookie or localStorage with safeguards).
+
+B. User Profile Management:
+
+A dedicated user profile page where a logged-in user can view and edit their information.
+
+Fields to Store: username (unique, for login), password (hashed), email, firstName, lastName, gender (dropdown: Male, Female, Prefer not to say, Other), profilePhoto (URL to the stored image).
+
+Functionality to upload and crop a profile picture.
+
+C. Real-Time Chat System:
+
+A main chat dashboard that shows:
+
+A sidebar list of all online users.
+
+A central chat window for messages.
+
+A message input area.
+
+Implement typing indicators (e.g., "User is typing...").
+
+Display message timestamps in a user-friendly format (e.g., "10:45 AM" or "Yesterday").
+
+Message Persistence: All messages must be saved to the database with the following schema:
+
+senderId (reference to User)
+
+receiverId (reference to User) or conversationId (if moving to group chats later)
+
+message (text content)
+
+imageUrl (if message contains an image)
+
+timestamp
+
+D. Message Content:
+
+Support for plain text and emoji picker (integrate a library like emoji-picker-react).
+
+Functionality to send images within the chat. Users should be able to select an image file from their device to send. This image should be uploaded to the server and its URL sent as part of the message.
+
+E. Chat History:
+
+Upon login, the user must be able to see their past conversations.
+
+The sidebar should list users they have chatted with before, not just who is currently online.
+
+Clicking on a user from the list should load the entire history of messages with that user in the central chat window, sorted chronologically.
+
+F. User Experience (UX) & UI Design:
+
+Modern & Clean: Use a clean, modern design with a pleasant color scheme (e.g., a dark/light mode option would be a bonus).
+
+Intuitive: The interface should be self-explanatory. Clearly show who is online (e.g., with a green dot indicator).
+
+Responsive: The layout must adapt flawlessly to all screen sizes using Flexbox/Grid and Tailwind's responsive utilities.
+
+Feedback: Provide visual feedback for all actions (e.g., loading spinners, success/error messages for sending, uploading).
+
+3. Deliverables:
+Provide a complete, structured output including:
+
+Step-by-step Architecture Plan: High-level overview of the app structure.
+
+Database Schema Models: Detailed Mongoose schemas for User and Message.
+
+API Route Definitions: List of all necessary REST API endpoints (e.g., POST /api/auth/login, GET /api/users, POST /api/messages, POST /api/upload).
+
+Socket.IO Event Handlers: List key Socket events needed (e.g., connection, sendMessage, messageReceived, userTyping, userOnline).
+
+Core Frontend Components: Break down the UI into React components (e.g., Login.js, Dashboard.js, Sidebar.js, ChatWindow.js, Message.js, Profile.js). Provide the detailed code for the most complex components, like ChatWindow.js and the Socket connection logic.
+
+Key Code Snippets: Provide crucial code sections, such as:
+
+The Express server setup with Socket.IO integration.
+
+The JWT authentication middleware.
+
+The Socket.IO connection handler on the server.
+
+The React hook for managing the Socket connection on the client.
+
+The Multer configuration for file uploads.
+
+Instructions: Brief instructions on how to set up the project, install dependencies, and run the development server.
+
+Please proceed to generate this complete application based on the specified stack and requirements.
